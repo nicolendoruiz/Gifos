@@ -1,0 +1,147 @@
+@import "variables";
+
+.principal {
+  background-color: var(--background_general);
+  padding-top: 100px;
+  text-align: center;
+  h1 {
+    margin: 2px 44px 27px 45px;
+    font-family: $font-montserrat;
+    font-weight: 700;
+    font-size: 30px;
+    color: var(--purpura);
+    text-align: center;
+    line-height: 36px;
+    .gifos {
+      color: var(--turquesa);
+    }
+  }
+  img {
+    width: 273px;
+    height: 130px;
+  }
+  article {
+    h3 {
+      color: var(--purpura);
+      font-weight: 700;
+      font-size: 16px;
+      margin: 31px 0 2px 0;
+      line-height: 25px;
+    }
+    p {
+      color: var(--purpura);
+      font-size: 14px;
+      padding: 0 75px 45px 75px;
+      line-height: 25px;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+  .d-busqueda {
+    border: 1px solid var(--purpura);
+    border-radius: 27px;
+    width: 90%;
+    z-index: 1;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .d-input {
+      display: flex;
+      width: 100%;
+      button {
+        border: none;
+        background: none;
+        .input_img {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+        }
+      }
+      input {
+        width: 90%;
+        border: none;
+        background: none;
+        height: 50px;
+        padding-left: 1em;
+      }
+      input:focus {
+        outline: none;
+        outline-width: 0;
+      }
+      input::placeholder {
+        font-size: 16px;
+        font-family: $font-roboto;
+        color: var(--linea);
+        line-height: 19px;
+        text-indent: 54px;
+      }
+    }
+    .lista-busqueda {
+      display: none;
+      list-style: none;
+      display: flex;
+      align-content: center;
+      width: 90%;
+      border-top: 1px solid var(--linea);
+      flex-direction: column;
+      li {
+        list-style: none;
+        text-align: start;
+        text-indent: 1em;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        color: var(--linea);
+        font-size: 16px;
+        font-family: $font-roboto;
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .principal {
+    h1 {
+      margin: 76px 253px 24px 253px;
+      display: inline-block;
+      font-size: 35px;
+      line-height: 50px;
+
+      .gifos {
+      }
+    }
+    img {
+      width: 399px;
+      height: 190px;
+    }
+    article {
+      h3 {
+        font-size: 18px;
+        margin: 73px 0 7px 0;
+      }
+      p {
+        font-size: 16px;
+        padding-bottom: 95px;
+      }
+    }
+    .d-busqueda {
+      width: 38.3%;
+      .d-input {
+        button {
+          .input_img {
+          }
+        }
+        input {
+        }
+        input:focus {
+        }
+        input::placeholder {
+        }
+      }
+      .lista-busqueda {
+        li {
+        }
+      }
+    }
+  }
+}
