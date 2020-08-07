@@ -4,9 +4,13 @@ header {
   background-color: var(--background_general);
   width: 100%;
   position: fixed;
+  z-index: 3000;
   .linea {
     height: 5px;
     background-color: var(--barramenu);
+  }
+  .sticky-nav {
+    box-shadow: 0 2px 4px 1px;
   }
   nav {
     display: flex;
@@ -18,19 +22,16 @@ header {
     z-index: 2000;
     .d-logo {
       img {
-        height: 48.8px;
-        width: 48.8px;
-        margin: 29px 263.2px 17.2px 22px;
+        height: 49px;
+        width: 56px;
+        margin: 29px 263.2px 17px 22px;
       }
       h2 {
         position: absolute;
         z-index: 2;
         top: 55px;
         left: 30px;
-        font-size: 16px;
-        font-family: $font-roboto;
-        font-weight: 900;
-        color: var(--purpura);
+        @include letra(0,$font-roboto,var(--purpura),16px,900,0);
       }
     }
     .menu {
@@ -73,6 +74,12 @@ header {
           span {
             display: inline-block;
           }
+        }
+        li:hover{
+          border-bottom: 2px solid var(--tu);
+        }
+        .liCrearGifos {
+          display: none;
         }
 
         li:first-child {
@@ -121,19 +128,17 @@ header {
 }
 @media (min-width: 769px) {
   header {
-    .linea {
-    }
     nav {
       height: 90px;
       .d-logo {
         img {
-          width: 59.1px;
-          height: 59.1px;
+          width: 68px;
+          height: 60px;
           margin: 23px 0 12.9px 156px;
         }
         h2 {
-          top: 47px;
-          left: 168px;
+          top: 60px;
+          left: 180px;
         }
       }
       .menu {
@@ -155,34 +160,28 @@ header {
             .linea-ul {
               display: none;
             }
-            span {
-            }
           }
-
+          .liCrearGifos {
+            display: block;
+            height: 54px;
+            width: 54px;
+            padding-top: 8px;
+            border-radius: 50%;
+            margin: 0 156px 0 59.5px;
+            border: 1px solid var(--purpura);
+          }
           li:first-child {
             margin: 0px;
-          }
-          li:nth-child(1) {
           }
           li:nth-child(2) {
             margin-left: 41px;
           }
           li:nth-child(3) {
-            margin: 0 59.5px 0 50px;
+            margin-left: 50px;
           }
-          &.menudesplegado {
-          }
-        }
-        input {
         }
         .menu-burger {
           display: none;
-        }
-        .menu-burger.menudesplegado span:nth-last-child(3) {
-        }
-        .menu-burger.menudesplegado span:nth-last-child(2) {
-        }
-        .layer {
         }
       }
     }

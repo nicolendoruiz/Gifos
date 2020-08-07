@@ -6,12 +6,8 @@
   text-align: center;
   h1 {
     margin: 2px 44px 27px 45px;
-    font-family: $font-montserrat;
-    font-weight: 700;
-    font-size: 30px;
-    color: var(--purpura);
+    @include letra(0, $font-montserrat, var(--purpura), 30px, 700, 36px);
     text-align: center;
-    line-height: 36px;
     .gifos {
       color: var(--turquesa);
     }
@@ -22,18 +18,12 @@
   }
   article {
     h3 {
-      color: var(--purpura);
-      font-weight: 700;
-      font-size: 16px;
+      @include letra(0, $font-montserrat, var(--purpura), 16px, 700, 25px);
       margin: 31px 0 2px 0;
-      line-height: 25px;
     }
     p {
-      color: var(--purpura);
-      font-size: 14px;
-      padding: 0 75px 45px 75px;
-      line-height: 25px;
-      font-weight: 500;
+      @include letra(0, $font-montserrat, var(--purpura), 14px, 500, 25px);
+      padding: 0 75px 35px 75px;
       margin: 0;
     }
   }
@@ -64,16 +54,14 @@
         background: none;
         height: 50px;
         padding-left: 1em;
+        padding-top: 15px;
       }
       input:focus {
         outline: none;
         outline-width: 0;
       }
       input::placeholder {
-        font-size: 16px;
-        font-family: $font-roboto;
-        color: var(--linea);
-        line-height: 19px;
+        @include letra(0, $font-roboto, var(--linea), 16px, 500, 19px);
         text-indent: 54px;
       }
     }
@@ -106,9 +94,6 @@
       display: inline-block;
       font-size: 35px;
       line-height: 50px;
-
-      .gifos {
-      }
     }
     img {
       width: 399px;
@@ -126,22 +111,6 @@
     }
     .d-busqueda {
       width: 38.3%;
-      .d-input {
-        button {
-          .input_img {
-          }
-        }
-        input {
-        }
-        input:focus {
-        }
-        input::placeholder {
-        }
-      }
-      .lista-busqueda {
-        li {
-        }
-      }
     }
   }
 }

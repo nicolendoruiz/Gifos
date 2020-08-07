@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.css">
 </head>
+
 <body>
     <header>
         <div class="linea"></div>
@@ -36,45 +37,57 @@
                     <li><a href="misgifos.html">Mis GIFOS</a>
                         <p class="linea-ul"></p>
                     </li>
-                    <li class="liCrearGifos"><a href="creargifos.html"><img src="images/button-crear-gifo.svg" alt="Icon-Favoritos" /></a></li>
+                    <li class="liCrearGifos"><a href="creargifos.html"><img src="images/button-crear-gifo.svg"
+                                alt="Icon-creargifos" /></a></li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
-        <section class="principal">
-            <h1>Inspírate, busca, guarda, y crea los mejores <span class="gifos">GIFOS</span></h1>
-            <img src="./images/ilustra_header.svg" alt="Banner-principal-GIFOS" class="logo" />
-            <div class="d-busqueda">
-                <div class="d-input">
-                    <input id="in-busqueda" type="text" placeholder="Busca GIFOS y más">
-                    <button id="btn-buscar"><img src="images/icon-search.svg" class="input_img"
-                            alt="icono-busqueda"></button>
+        <section class="creargifos">
+            <article class="div-grabacion">
+                <div class="div-camara">
+                    <img src="images/camara.svg" alt="Imagen-cámara" class="camara" id="camara" />
+                    <img src="images/element-luz-camara.svg" alt="Imagen-luz-cámara" class="camara" id="luz-camara" />
                 </div>
-                <ul id="lista-busqueda" class="hidden">
-                </ul>
-            </div>
-            <article>
-                <h3>Trending:</h3>
-                <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+                <div class="div-contenedor">
+                    <div class="div-grabacion">
+                        <div class="div-borders">
+                            <div class="borde-grabacion"></div>
+                            <div class="borde-grabacion"></div>
+                            <div class="borde-grabacion"></div>
+                            <div class="borde-grabacion"></div>
+                        </div>
+                        <div class="div-descripcion">
+                            <h2>Aquí podrás <br> crear tus propios <span>GIFOS</span></h2>
+                            <p>Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</p>
+                        </div>
+                        <!-- <video></video> -->
+                    </div>
+                    <div class="div-opcgenerales">
+                        <div class="div-pasos">
+                            <div class="paso">1</div>
+                            <div class="paso">2</div>
+                            <div class="paso">3</div>
+                        </div>
+                        <div class="div-opcgrabacion">
+                            <p>REPETIR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-pelicula">
+                    <img src="images/pelicula.svg" alt="Imagen-película" />
+                </div>
+            </article>
+            <article class="div-lineaseparador"></article>
+            <article class="div-botones">
+                <button>COMENZAR</button>
+                <!-- <button>GRABAR</button> -->
+                <!-- <button>FINALIZAR</button> -->
+                <!-- <button>SUBIR GIFO</button> -->
             </article>
         </section>
-        <section class="resultados">
-            <div class="linea"></div>
-            <h2 id="titulo-resultados">Resultados</h2>
-            <div id="resultados-gifs" class="resultados-gifs hidden">
-            </div>
-        </section>
-        <section class="trending">
-            <h2>Trending GIFOS</h2>
-            <p>Mira los últimos GIFOS de nuestra comunidad.</p>
-            <div class="trending-slider" class="trending-slider">
-                <div class="slider-gif">
-                    <img class="slider-gif" id="img-0"
-                        src="https://media1.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif?cid=d94754919a55699ae53721a0c7914564891e5fd54f366bb9&rid=giphy.gif">
-                </div>
-            </div>
-        </section>
+
     </main>
     <footer class="d-footer">
         <p>Compartir en:</p>
@@ -88,8 +101,8 @@
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.js"></script>
     <script src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
     <script src="script/app.js"></script>
 </body>
+
 </html>

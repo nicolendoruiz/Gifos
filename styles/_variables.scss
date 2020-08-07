@@ -11,6 +11,7 @@
   --background_general: #ffffff;
   --linea: #9cafc3;
   --menudestokp: white;
+  --botones:white;
 }
 
 //TEMA NOCTURNO
@@ -23,7 +24,17 @@
   --gris: white;
   --negro: white;
   --background_general: #37383c;
+  --botones:black;
 }
 
 $font-roboto: "Roboto", sans-serif;
 $font-montserrat: "Montserrat", sans-serif;
+
+@mixin letra($spacing, $font, $color, $size, $weigth,$line) {
+  letter-spacing: $spacing;
+  font-family: $font;
+  color: $color;
+  font-size: $size;
+  font-weight: $weigth;
+  line-height: $line;
+}
