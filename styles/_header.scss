@@ -29,9 +29,9 @@ header {
       h2 {
         position: absolute;
         z-index: 2;
-        top: 55px;
-        left: 30px;
-        @include letra(0,$font-roboto,var(--purpura),16px,900,0);
+        top: 63px;
+        left: 38px;
+        @include letra(0, $font-roboto, var(--purpura), 16px, 900, 0);
       }
     }
     .menu {
@@ -61,6 +61,12 @@ header {
             color: var(--blanco);
             display: block;
           }
+          a:hover {
+            border-bottom: 2px solid var(--turquesa);
+          }
+          a:active {
+            color: var(--linea);
+          }
           .linea-ul {
             border: 0;
             border-top: 0.1px solid white;
@@ -75,13 +81,11 @@ header {
             display: inline-block;
           }
         }
-        li:hover{
-          border-bottom: 2px solid var(--tu);
-        }
+        
         .liCrearGifos {
           display: none;
         }
-
+       
         li:first-child {
           margin-top: 32px;
         }
@@ -169,6 +173,16 @@ header {
             border-radius: 50%;
             margin: 0 156px 0 59.5px;
             border: 1px solid var(--purpura);
+            a:hover {
+              border-bottom: none;
+            }
+            
+          }
+          .liCrearGifos:hover {
+            background-color:var(--purpura);
+          }
+          .liCrearGifos:active {
+            background-color:var(--linea);
           }
           li:first-child {
             margin: 0px;

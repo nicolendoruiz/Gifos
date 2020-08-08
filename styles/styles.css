@@ -62,8 +62,8 @@ header {
     header nav .d-logo h2 {
       position: absolute;
       z-index: 2;
-      top: 55px;
-      left: 30px;
+      top: 63px;
+      left: 38px;
       letter-spacing: 0;
       font-family: "Roboto", sans-serif;
       color: var(--purpura);
@@ -95,6 +95,10 @@ header {
           text-decoration: none;
           color: var(--blanco);
           display: block; }
+        header nav .menu ul li a:hover {
+          border-bottom: 2px solid var(--turquesa); }
+        header nav .menu ul li a:active {
+          color: var(--linea); }
         header nav .menu ul li .linea-ul {
           border: 0;
           border-top: 0.1px solid white;
@@ -106,8 +110,6 @@ header {
           padding-bottom: 14px; }
         header nav .menu ul li span {
           display: inline-block; }
-      header nav .menu ul li:hover {
-        border-bottom: 2px solid var(--tu); }
       header nav .menu ul .liCrearGifos {
         display: none; }
       header nav .menu ul li:first-child {
@@ -176,6 +178,12 @@ header {
         border-radius: 50%;
         margin: 0 156px 0 59.5px;
         border: 1px solid var(--purpura); }
+        header nav .menu ul .liCrearGifos a:hover {
+          border-bottom: none; }
+      header nav .menu ul .liCrearGifos:hover {
+        background-color: var(--purpura); }
+      header nav .menu ul .liCrearGifos:active {
+        background-color: var(--linea); }
       header nav .menu ul li:first-child {
         margin: 0px; }
       header nav .menu ul li:nth-child(2) {
@@ -255,7 +263,12 @@ header {
     flex-direction: column; }
     .principal .d-busqueda .d-input {
       display: flex;
-      width: 100%; }
+      width: 100%;
+      align-items: center; }
+      .principal .d-busqueda .d-input .img-lupa {
+        width: 20px;
+        height: 20px;
+        margin-left: 10px; }
       .principal .d-busqueda .d-input button {
         border: none;
         background: none; }
@@ -263,13 +276,14 @@ header {
           width: 20px;
           height: 20px;
           cursor: pointer; }
+        .principal .d-busqueda .d-input button #cerrar-busqueda {
+          display: none; }
       .principal .d-busqueda .d-input input {
         width: 90%;
         border: none;
         background: none;
         height: 50px;
-        padding-left: 1em;
-        padding-top: 15px; }
+        padding-left: 1em; }
       .principal .d-busqueda .d-input input:focus {
         outline: none;
         outline-width: 0; }
@@ -290,18 +304,24 @@ header {
       border-top: 1px solid var(--linea);
       flex-direction: column; }
       .principal .d-busqueda .lista-busqueda li {
+        display: flex;
+        align-items: center;
         list-style: none;
         text-align: start;
         text-indent: 1em;
-        margin-top: 7px;
-        margin-bottom: 7px;
         color: var(--linea);
         font-size: 16px;
         font-family: "Roboto", sans-serif; }
+        .principal .d-busqueda .lista-busqueda li p {
+          margin-top: 7px;
+          margin-bottom: 7px; }
+        .principal .d-busqueda .lista-busqueda li img {
+          width: 15.8px;
+          height: 15.8px; }
 
 @media (min-width: 769px) {
   .principal h1 {
-    margin: 76px 253px 24px 253px;
+    margin: 76px 440px 24px 440px;
     display: inline-block;
     font-size: 35px;
     line-height: 50px; }
@@ -433,6 +453,26 @@ header {
     font-weight: 500;
     line-height: 23px;
     padding: 9px 100px; }
+  .trending .contenedor-trending {
+    height: 187px;
+    background: none;
+    position: relative;
+    overflow: hidden; }
+    .trending .contenedor-trending .contenedor-cards {
+      position: absolute;
+      display: inline-flex;
+      touch-action: none;
+      margin-left: -170px; }
+      .trending .contenedor-trending .contenedor-cards .card {
+        width: 243px;
+        height: 187px;
+        background: none;
+        margin-right: 22px; }
+        .trending .contenedor-trending .contenedor-cards .card img {
+          height: 100%;
+          width: 100%;
+          -o-object-fit: cover;
+          object-fit: cover; }
 
 .resultados {
   background-color: var(--background_general); }
@@ -472,6 +512,11 @@ header {
     .resultados .resultados-gifs div {
       background-size: cover;
       background-position: center; }
+      .resultados .resultados-gifs div img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover; }
 
 .favoritos {
   padding-top: 100px;

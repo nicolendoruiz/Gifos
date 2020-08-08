@@ -13,7 +13,30 @@
   p {
     @include letra(0, $font-roboto, var(--negro), 16px, 500, 23px);
     padding: 9px 100px;
-    // margin: 0 21px 32px 21px;
+  }
+  .contenedor-trending {
+    height: 187px;
+    background: none;
+    position: relative;
+    overflow: hidden;
+    .contenedor-cards {
+      position: absolute;
+      display: inline-flex;
+      touch-action: none;
+      margin-left: -170px;
+      .card {
+        width: 243px;
+        height: 187px;
+        background: none;
+        margin-right: 22px;
+        img {
+          height: 100%;
+          width: 100%;
+          -o-object-fit: cover;
+          object-fit: cover;
+        }
+      }
+    }
   }
 }
 
@@ -55,6 +78,12 @@
     div {
       background-size: cover;
       background-position: center;
+      img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
     }
   }
 }
@@ -240,49 +269,6 @@
     }
   }
 }
-// .creargifos {
-//   padding-top: 100px;
-//   display: flex;
-//   width: 100%;
-//   flex-direction: column;
-//   .div-camara{
-//     position: relative;
-//   }
-//   .div-grabacion {
-//     display: flex;
-//     justify-content: center;
-//     .div-video {
-//       height: 390px;
-//       width: 688px;
-//       video {
-//         border: 1px solid red;
-//         width: 100%;
-//         height: 100%;
-//       }
-//     }
-//   }
-//   .div-opciones {
-//     display: flex;
-//     justify-content: center;
-//     .div-pasos {
-//       display: flex;
-//     }
-//   }
-//   .div-lineaseparador {
-//     height: 6.9px;
-//     background-color: var(--linea);
-//     width: 60%;
-//     margin: auto;
-//   }
-//   .div-botones {
-//     button{
-//       width: 127px;
-//       height: 50px;
-//       border-radius: 25px;
-//       border: 1px solid var(--purpura);
-//     }
-//   }
-// }
 
 @media (min-width: 769px) {
   .trending {

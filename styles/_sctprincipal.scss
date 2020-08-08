@@ -39,6 +39,12 @@
     .d-input {
       display: flex;
       width: 100%;
+      align-items: center;
+      .img-lupa {
+        width: 20px;
+        height: 20px;
+        margin-left: 10px;
+      }
       button {
         border: none;
         background: none;
@@ -47,6 +53,9 @@
           height: 20px;
           cursor: pointer;
         }
+        #cerrar-busqueda{
+          display: none;
+        }
       }
       input {
         width: 90%;
@@ -54,7 +63,6 @@
         background: none;
         height: 50px;
         padding-left: 1em;
-        padding-top: 15px;
       }
       input:focus {
         outline: none;
@@ -74,14 +82,22 @@
       border-top: 1px solid var(--linea);
       flex-direction: column;
       li {
+        display: flex;
+        align-items: center;
         list-style: none;
         text-align: start;
         text-indent: 1em;
-        margin-top: 7px;
-        margin-bottom: 7px;
         color: var(--linea);
         font-size: 16px;
         font-family: $font-roboto;
+        p {
+          margin-top: 7px;
+          margin-bottom: 7px;
+        }
+        img {
+          width: 15.8px;
+          height: 15.8px;
+        }
       }
     }
   }
@@ -90,7 +106,7 @@
 @media (min-width: 769px) {
   .principal {
     h1 {
-      margin: 76px 253px 24px 253px;
+      margin: 76px 440px 24px 440px;
       display: inline-block;
       font-size: 35px;
       line-height: 50px;
