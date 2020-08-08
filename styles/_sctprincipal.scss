@@ -21,10 +21,18 @@
       @include letra(0, $font-montserrat, var(--purpura), 16px, 700, 25px);
       margin: 31px 0 2px 0;
     }
-    p {
+    ul {
       @include letra(0, $font-montserrat, var(--purpura), 14px, 500, 25px);
       padding: 0 75px 35px 75px;
       margin: 0;
+      display: flex;
+      justify-content: center;
+      li {
+        list-style: none;
+        text-transform: capitalize;
+        padding: 0.5em;
+        cursor:pointer;
+      }
     }
   }
   .d-busqueda {
@@ -53,7 +61,7 @@
           height: 20px;
           cursor: pointer;
         }
-        #cerrar-busqueda{
+        #cerrar-busqueda {
           display: none;
         }
       }

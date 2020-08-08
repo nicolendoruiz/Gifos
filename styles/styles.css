@@ -23,7 +23,7 @@
   --background_general: #ffffff;
   --linea: #9cafc3;
   --menudestokp: white;
-  --botones:white; }
+  --botones: white; }
 
 [data-theme="dark"] {
   --menudestokp: #37383c;
@@ -34,7 +34,7 @@
   --gris: white;
   --negro: white;
   --background_general: #37383c;
-  --botones:black; }
+  --botones: black; }
 
 header {
   font-family: "Montserrat", sans-serif;
@@ -204,7 +204,7 @@ header {
   --background_general: #ffffff;
   --linea: #9cafc3;
   --menudestokp: white;
-  --botones:white; }
+  --botones: white; }
 
 [data-theme="dark"] {
   --menudestokp: #37383c;
@@ -215,7 +215,7 @@ header {
   --gris: white;
   --negro: white;
   --background_general: #37383c;
-  --botones:black; }
+  --botones: black; }
 
 .principal {
   background-color: var(--background_general);
@@ -243,7 +243,7 @@ header {
     font-weight: 700;
     line-height: 25px;
     margin: 31px 0 2px 0; }
-  .principal article p {
+  .principal article ul {
     letter-spacing: 0;
     font-family: "Montserrat", sans-serif;
     color: var(--purpura);
@@ -251,7 +251,14 @@ header {
     font-weight: 500;
     line-height: 25px;
     padding: 0 75px 35px 75px;
-    margin: 0; }
+    margin: 0;
+    display: flex;
+    justify-content: center; }
+    .principal article ul li {
+      list-style: none;
+      text-transform: capitalize;
+      padding: 0.5em;
+      cursor: pointer; }
   .principal .d-busqueda {
     border: 1px solid var(--purpura);
     border-radius: 27px;
@@ -348,7 +355,7 @@ header {
   --background_general: #ffffff;
   --linea: #9cafc3;
   --menudestokp: white;
-  --botones:white; }
+  --botones: white; }
 
 [data-theme="dark"] {
   --menudestokp: #37383c;
@@ -359,7 +366,7 @@ header {
   --gris: white;
   --negro: white;
   --background_general: #37383c;
-  --botones:black; }
+  --botones: black; }
 
 .d-footer {
   background-color: var(--background_general);
@@ -418,7 +425,7 @@ header {
   --background_general: #ffffff;
   --linea: #9cafc3;
   --menudestokp: white;
-  --botones:white; }
+  --botones: white; }
 
 [data-theme="dark"] {
   --menudestokp: #37383c;
@@ -429,7 +436,7 @@ header {
   --gris: white;
   --negro: white;
   --background_general: #37383c;
-  --botones:black; }
+  --botones: black; }
 
 .trending {
   background-color: var(--background_trending);
@@ -475,7 +482,8 @@ header {
           object-fit: cover; }
 
 .resultados {
-  background-color: var(--background_general); }
+  background-color: var(--background_general);
+  text-align: center; }
   .resultados .linea {
     background-color: var(--linea);
     width: 157px;
@@ -499,7 +507,7 @@ header {
     width: 80px;
     height: 80px; }
   .resultados .text-sinresultados {
-    margin-bottom: 129px;
+    padding-bottom: 129px;
     color: var(--turquesa);
     font-size: 22px;
     line-height: 25px; }
@@ -517,6 +525,23 @@ header {
         width: 100%;
         -o-object-fit: cover;
         object-fit: cover; }
+  .resultados button {
+    margin-top: 78px;
+    margin-bottom: 78px;
+    background: none;
+    border-radius: 25px;
+    border: 1px solid var(--purpura);
+    width: 127px;
+    height: 50px;
+    letter-spacing: 0;
+    font-family: "Montserrat", sans-serif;
+    color: var(--purpura);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 30px; }
+  .resultados button:hover {
+    background-color: var(--purpura);
+    color: var(--botones); }
 
 .favoritos {
   padding-top: 100px;
@@ -654,15 +679,17 @@ header {
     width: 795.9px; }
   .creargifos .div-botones button {
     background: none;
-    margin-top: 20px;
-    width: 127px;
-    height: 50px;
     border-radius: 25px;
     border: 1px solid var(--purpura);
+    width: 127px;
+    height: 50px;
+    margin-top: 20px;
+    letter-spacing: 0;
     font-family: "Montserrat", sans-serif;
-    font-size: 13px;
     color: var(--purpura);
-    font-weight: 600; }
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 30px; }
   .creargifos .div-botones button:hover {
     background-color: var(--purpura);
     color: var(--botones); }
@@ -675,7 +702,7 @@ header {
     width: 150px;
     height: 150px; }
   .resultados .text-sinresultados {
-    margin-bottom: 129px; }
+    padding-bottom: 129px; }
   .resultados .d-sinresultados {
     text-align: center; }
   .resultados .resultados-gifs {

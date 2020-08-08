@@ -51,22 +51,29 @@
                 <div class="d-input">
                     <img id="img-lupa" src="images/icon-search-gris.svg" alt="icono-busqueda" class="hidden">
                     <input id="in-busqueda" type="text" placeholder="Busca GIFOS y más">
-                    <button id="btn-buscar"><img src="images/icon-search.svg" class="input_img" id="lupa-busqueda" alt="icono-busqueda"></button>
-                    <button id="btn-buscar"><img src="images/close.svg" class="input_img" id="cerrar-busqueda" alt="icono-busqueda"></button>
+                    <button id="btn-buscar"><img src="images/icon-search.svg" class="input_img" id="lupa-busqueda"
+                            alt="icono-busqueda"></button>
+                    <button id="btn-buscar"><img src="images/close.svg" class="input_img" id="cerrar-busqueda"
+                            alt="icono-busqueda"></button>
                 </div>
                 <ul id="lista-busqueda" class="hidden">
                 </ul>
             </div>
             <article>
                 <h3>Trending:</h3>
-                <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
+                <ul id="lista-treding" class="lista-treding">
+                    <li>Reactions</li>
+                    <li>Entertainment</li>
+                </ul>
+                <!-- <p>Reactions, Entertainment, Sports, Stickers, Artists</p> -->
             </article>
         </section>
         <section class="resultados">
             <div class="linea"></div>
-            <h2 id="titulo-resultados">Resultados</h2>
+            <h2 id="titulo-resultados" class="hidden">Resultados</h2>
             <div id="resultados-gifs" class="resultados-gifs hidden">
             </div>
+            <button id="btn-vermas" class="hidden">VER MAS</button>
         </section>
         <section class="trending">
             <h2>Trending GIFOS</h2>

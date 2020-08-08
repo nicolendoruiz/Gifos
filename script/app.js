@@ -1,8 +1,6 @@
 window.onload = function () {
     cambioTema();
     cargarTrending();
-    // cargarSugerencias();
-    // cargarBusqueda("perro");
 };
 
 /*_____________________NAVBAR STICKY_____________________*/
@@ -39,60 +37,60 @@ document.getElementById('liModoMocturno').addEventListener("click", function (e)
     cambioTema();
 })
 
-/*_____________________SLIDER TRENDING MOBILE_____________________*/
+/*_____________________FUNCIONAMIENTOS TRENDING MOBILE_____________________*/
 const track = document.getElementById('contenedor-cards');
-let initialPosition = null;
-let moving = false;
-let transform = 0;
-const gestureStart = (e) => {
-    initialPosition = e.pageX;
-    moving = true;
-    const transformMatrix = window.getComputedStyle(track).getPropertyValue('transform');
-    if (transformMatrix !== 'none') {
-        transform = parseInt(transformMatrix.split(',')[4].trim());
+if (!!track) {
+    let initialPosition = null;
+    let moving = false;
+    let transform = 0;
+    const gestureStart = (e) => {
+        initialPosition = e.pageX;
+        moving = true;
+        const transformMatrix = window.getComputedStyle(track).getPropertyValue('transform');
+        if (transformMatrix !== 'none') {
+            transform = parseInt(transformMatrix.split(',')[4].trim());
+        }
     }
-}
-const gestureMove = (e) => {
-    if (moving) {
-        const currentPosition = e.pageX;
-        const diff = currentPosition - initialPosition;
-        track.style.transform = `translateX(${transform + diff}px)`;
+    const gestureMove = (e) => {
+        if (moving) {
+            const currentPosition = e.pageX;
+            const diff = currentPosition - initialPosition;
+            track.style.transform = `translateX(${transform + diff}px)`;
+        }
+    };
+    const gestureEnd = (e) => {
+        moving = false;
     }
-};
-const gestureEnd = (e) => {
-    moving = false;
+    
+    if (window.PointerEvent) {
+        window.addEventListener('pointerdown', gestureStart);
+        window.addEventListener('pointermove', gestureMove);
+        window.addEventListener('pointerup', gestureEnd);
+    } else {
+        window.addEventListener('touchdown', gestureStart);
+        window.addEventListener('touchmove', gestureMove);
+        window.addEventListener('touchup', gestureEnd);
+        window.addEventListener('mousedown', gestureStart);
+        window.addEventListener('mousemove', gestureMove);
+        window.addEventListener('mouseup', gestureEnd);
+    } 
 }
 
-if (window.PointerEvent) {
-    window.addEventListener('pointerdown', gestureStart);
-    window.addEventListener('pointermove', gestureMove);
-    window.addEventListener('pointerup', gestureEnd);
-} else {
-    window.addEventListener('touchdown', gestureStart);
-    window.addEventListener('touchmove', gestureMove);
-    window.addEventListener('touchup', gestureEnd);
-    window.addEventListener('mousedown', gestureStart);
-    window.addEventListener('mousemove', gestureMove);
-    window.addEventListener('mouseup', gestureEnd);
-}
-
-/*_____________________GIPHY_____________________*/
+/*_____________________GENERALIDADES GIPHY_____________________*/
 const APIkey = "HBbQgzW5Bryp891jwDofkTaAyDKxBWiU";
 
 async function logFetch(url) {
-    try {
-        const response = await fetch(url);
-        const result = await response.json();
-        return result;
-    } catch (error) {
-        console.log('Error al cargar los datos', error);
-    }
-}
+    return fetch(url)
+        .then((data) => {
+            return data.json();
+        })
+        .catch(error => console.error('Error:', error));
+};
 
+/*_____________________CARGUE INFORMACIÓN DE TRENDING_____________________*/
 async function cargarTrending() {
     let puntoFinalTendencia = `https://api.giphy.com/v1/gifs/trending?api_key=${APIkey}&limit=12`;
     let gifsTrending = await logFetch(puntoFinalTendencia);
-    console.log(gifsTrending);
     let contenedor = document.getElementById('contenedor-cards');
     for (let i = 0; i < gifsTrending.data.length; i++) {
         let divtrending = document.createElement('div');
@@ -101,6 +99,8 @@ async function cargarTrending() {
         imggif.srcset = `${gifsTrending.data[i].images.downsized_large.url}`
         imggif.alt = `${gifsTrending.data[i].title}`;
         divtrending.appendChild(imggif);
-        contenedor.appendChild(divtrending);
+        if (!!contenedor) {
+            contenedor.appendChild(divtrending);
+        }
     }
-}
+};
