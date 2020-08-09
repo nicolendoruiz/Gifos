@@ -88,8 +88,8 @@
     }
   }
   button {
-    margin-top:78px;
-    margin-bottom:78px;
+    margin-top: 78px;
+    margin-bottom: 78px;
     @include boton;
     @include letra(0, $font-montserrat, var(--purpura), 13px, 600, 30px);
   }
@@ -216,13 +216,18 @@
             font-size: 16px;
           }
         }
-        // video {
-        //   position: absolute;
-        //   z-index: 200;
-        //   width: 480px;
-        //   height: 320px;
-        //   border: 1px solid black;
-        // }
+        video {
+          position: absolute;
+          z-index: 200;
+          width: 480px;
+          height: 320px;
+        }
+        img {
+          position: absolute;
+          z-index: 200;
+          width: 480px;
+          height: 320px;
+        }
       }
       .div-opcgenerales {
         height: 75px;
@@ -240,6 +245,15 @@
             border-radius: 50%;
             border: 1px solid var(--purpura);
             margin: 0 12.5px 0 12.5px;
+            font-size: 18px;
+            color:var(--purpura);
+            font: $font-roboto;
+            font-weight: 600;
+            // @include letra(0, $font-roboto, var(--purpura), 18px, 600, 0);
+          }
+          .pasoactivo{
+            color: var(--blanco);
+            background-color: var(--purpura);
           }
         }
         .div-opcgrabacion {

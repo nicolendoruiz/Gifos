@@ -58,11 +58,12 @@
                             <div class="borde-grabacion"></div>
                             <div class="borde-grabacion"></div>
                         </div>
-                        <div class="div-descripcion">
+                        <div id="div-descripcion" class="div-descripcion">
                             <h2>Aquí podrás <br> crear tus propios <span>GIFOS</span></h2>
                             <p>Crea tu GIFO en sólo 3 pasos! <br>(sólo necesitas una cámara para grabar un video)</p>
                         </div>
-                        <!-- <video></video> -->
+                        <video></video>
+                        <img src="" alt="" id="gif-grabado">
                     </div>
                     <div class="div-opcgenerales">
                         <div class="div-pasos">
@@ -81,10 +82,10 @@
             </article>
             <article class="div-lineaseparador"></article>
             <article class="div-botones">
-                <button>COMENZAR</button>
-                <!-- <button>GRABAR</button> -->
-                <!-- <button>FINALIZAR</button> -->
-                <!-- <button>SUBIR GIFO</button> -->
+                <button id="btn-comenzar">COMENZAR</button>
+                <button id="btn-grabar" hidden>GRABAR</button>
+                <button id="btn-finalizar" hidden>FINALIZAR</button>
+                <button id="btn-subir" hidden>SUBIR GIFO</button>
             </article>
         </section>
 
@@ -99,7 +100,9 @@
         <h6>© GIFOS 2020 All Rights Reserved.</h6>
         <div class="linea"></div>
     </footer>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="script/app.js"></script>
+    <script src="script/creargifos.js"></script>
 </body>
 
 </html>
