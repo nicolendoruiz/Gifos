@@ -1,7 +1,3 @@
-window.onload = function () {
-    cargarTrendingSugerencias();
-};
-
 let input_busqueda = document.getElementById('in-busqueda');
 let btn_busqueda = document.getElementById('btn-buscar');
 let lista_sugerencias = document.getElementById('lista-busqueda');
@@ -61,7 +57,7 @@ async function cargarTrendingSugerencias() {
     let trendingSugerencias = await logFetch(puntoFinalTrendingSuge);
     if (trendingSugerencias.data.length > 0) {
         let items_lista = "";
-        for (let i = 0; i <= 4; i++) {
+        for (let i = 0; i < 5; i++) {
             let items = `<li>${trendingSugerencias.data[i]}</li>`;
             items_lista = items_lista + items;
         }
@@ -130,8 +126,25 @@ async function cargarBusqueda(parametro, offset) {
         for (let i = 0; i < resultadosBusqueda.data.length; i++) {
             let div = document.createElement('div');
             let img = document.createElement('img');
+            div.innerHTML = `<div class="card-opciones">
+                                    <div class="opciones-gif">
+                                        <button id="btn-favorito" class="opcion-button">
+                                            <img src="images/icon-fav-active.svg" alt="icono-busqueda">
+                                        </button>
+                                        <button id="btn-descargar"class="opcion-button">
+                                            <img src="images/icon-download.svg" alt="icono-busqueda">
+                                        </button>
+                                        <button id="btn-max"class="opcion-button">
+                                            <img src="images/icon-max.svg" alt="icono-busqueda">
+                                        </button>
+                                    </div>
+                                    <div class="opciones-descripcion">
+                                        <p class="descripcion user">${resultadosBusqueda.data[i].username}</p>
+                                        <p class="descripcion titulo">${resultadosBusqueda.data[i].title}</p>
+                                    </div>
+                                </div>`;
             img.srcset = `${resultadosBusqueda.data[i].images.downsized_large.url}`;
-            img.alt = `${resultadosBusqueda.data[i].title}`;
+            img.alt = `${resultadosBusqueda.data[i].id}`;
             div.appendChild(img);
             resultados.appendChild(div);
             resultados.classList.remove('hidden');

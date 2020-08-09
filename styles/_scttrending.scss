@@ -20,10 +20,9 @@
     position: relative;
     overflow: hidden;
     .contenedor-cards {
-      position: absolute;
       display: inline-flex;
       touch-action: none;
-      margin-left: -170px;
+      margin-left: 22px;
       .card {
         width: 243px;
         height: 187px;
@@ -37,83 +36,30 @@
         }
         .card-opciones {
           display: none;
-          width: 243px;
-          height: 187px;
-          position: absolute;
-          background-color: var(--purpura);
-          opacity: 0.7;
-          .opciones-gif {
-            display: flex;
-            justify-content: flex-end;
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            .opcion-button {
-              width: 32px;
-              height: 32px;
-              opacity: 0.7;
-              background: var(--blanco);
-              border-radius: 6px;
-              margin-left: 11px;
-              img {
-                width: 18px;
-                height: 15.9px;
-              }
-            }
-          }
-          .opciones-descripcion {
-            position: absolute;
-            left: 18.5px;
-            bottom: 51px;
-            .descripcion {
-              margin: 0;
-              padding: 0;
-              font-family: $font-roboto;
-              font-size: 16px;
-              color: var(--blanco);
-              .user {
-              }
-              .titulo {
-                font-weight: 700;
-              }
-            }
-          }
         }
-      }
-      .card:hover .card-opciones {
-        display: block;
       }
     }
   }
 }
 @media (min-width: 769px) {
   .trending {
- 
     h2 {
-   
     }
     p {
       font-size: 18px;
     }
     .contenedor-trending {
-     
+      height: 275px;
       .contenedor-cards {
-        
         .card {
-          width: 243px;
-          height: 187px;
-          background: none;
-          margin-right: 22px;
-          img {
-            height: 100%;
-            width: 100%;
-            -o-object-fit: cover;
-            object-fit: cover;
-          }
+          width: 357px;
+          height: 275px;
+          margin-right: 29px;
           .card-opciones {
+            text-align: left;
             display: none;
-            width: 243px;
-            height: 187px;
+            width: 357px;
+            height: 275px;
             position: absolute;
             background-color: var(--purpura);
             opacity: 0.7;
@@ -127,7 +73,7 @@
                 width: 32px;
                 height: 32px;
                 opacity: 0.7;
-                background: var(--blanco);
+                background: var(--botones);
                 border-radius: 6px;
                 margin-left: 11px;
                 img {
@@ -144,11 +90,12 @@
                 margin: 0;
                 padding: 0;
                 font-family: $font-roboto;
-                font-size: 16px;
-                color: var(--blanco);
+                color: var(--botones);
                 .user {
+                  font-size: 16px;
                 }
                 .titulo {
+                  font-size: 18px;
                   font-weight: 700;
                 }
               }

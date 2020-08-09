@@ -477,6 +477,8 @@ header {
     .resultados .resultados-gifs div {
       background-size: cover;
       background-position: center; }
+      .resultados .resultados-gifs div .card-opciones {
+        display: none; }
       .resultados .resultados-gifs div img {
         height: 100%;
         width: 100%;
@@ -549,6 +551,48 @@ header {
     padding-right: 10%;
     grid-template-columns: repeat(auto-fill, minmax(260px, auto));
     grid-auto-rows: 200px; }
+    .resultados .resultados-gifs div {
+      position: relative; }
+      .resultados .resultados-gifs div .card-opciones {
+        text-align: left;
+        display: none;
+        width: 100%;
+        height: 200px;
+        position: absolute;
+        background-color: var(--purpura);
+        opacity: 0.7; }
+        .resultados .resultados-gifs div .card-opciones .opciones-gif {
+          display: flex;
+          justify-content: flex-end;
+          position: absolute;
+          right: 10px;
+          top: -70px; }
+          .resultados .resultados-gifs div .card-opciones .opciones-gif .opcion-button {
+            width: 32px;
+            height: 32px;
+            opacity: 0.7;
+            background: var(--botones);
+            border-radius: 6px;
+            margin-left: 11px; }
+            .resultados .resultados-gifs div .card-opciones .opciones-gif .opcion-button img {
+              width: 18px;
+              height: 15.9px; }
+        .resultados .resultados-gifs div .card-opciones .opciones-descripcion {
+          position: absolute;
+          left: 18.5px;
+          bottom: 51px; }
+          .resultados .resultados-gifs div .card-opciones .opciones-descripcion .descripcion {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--botones); }
+            .resultados .resultados-gifs div .card-opciones .opciones-descripcion .descripcion .user {
+              font-size: 16px; }
+            .resultados .resultados-gifs div .card-opciones .opciones-descripcion .descripcion .titulo {
+              font-size: 18px;
+              font-weight: 700; }
+    .resultados .resultados-gifs div:hover .card-opciones {
+      display: block; }
 
   .favoritos .sin-favoritos img {
     margin-top: 110px;
@@ -620,10 +664,9 @@ header {
     position: relative;
     overflow: hidden; }
     .trending .contenedor-trending .contenedor-cards {
-      position: absolute;
       display: inline-flex;
       touch-action: none;
-      margin-left: -170px; }
+      margin-left: 22px; }
       .trending .contenedor-trending .contenedor-cards .card {
         width: 243px;
         height: 187px;
@@ -635,93 +678,57 @@ header {
           -o-object-fit: cover;
           object-fit: cover; }
         .trending .contenedor-trending .contenedor-cards .card .card-opciones {
-          display: none;
-          width: 243px;
-          height: 187px;
-          position: absolute;
-          background-color: var(--purpura);
-          opacity: 0.7; }
-          .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif {
-            display: flex;
-            justify-content: flex-end;
-            position: absolute;
-            right: 10px;
-            top: 10px; }
-            .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif .opcion-button {
-              width: 32px;
-              height: 32px;
-              opacity: 0.7;
-              background: var(--blanco);
-              border-radius: 6px;
-              margin-left: 11px; }
-              .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif .opcion-button img {
-                width: 18px;
-                height: 15.9px; }
-          .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion {
-            position: absolute;
-            left: 18.5px;
-            bottom: 51px; }
-            .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion .descripcion {
-              margin: 0;
-              padding: 0;
-              font-family: "Roboto", sans-serif;
-              font-size: 16px;
-              color: var(--blanco); }
-              .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion .descripcion .titulo {
-                font-weight: 700; }
-      .trending .contenedor-trending .contenedor-cards .card:hover .card-opciones {
-        display: block; }
+          display: none; }
 
 @media (min-width: 769px) {
   .trending p {
     font-size: 18px; }
-  .trending .contenedor-trending .contenedor-cards .card {
-    width: 243px;
-    height: 187px;
-    background: none;
-    margin-right: 22px; }
-    .trending .contenedor-trending .contenedor-cards .card img {
-      height: 100%;
-      width: 100%;
-      -o-object-fit: cover;
-      object-fit: cover; }
-    .trending .contenedor-trending .contenedor-cards .card .card-opciones {
-      display: none;
-      width: 243px;
-      height: 187px;
-      position: absolute;
-      background-color: var(--purpura);
-      opacity: 0.7; }
-      .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif {
-        display: flex;
-        justify-content: flex-end;
+  .trending .contenedor-trending {
+    height: 275px; }
+    .trending .contenedor-trending .contenedor-cards .card {
+      width: 357px;
+      height: 275px;
+      margin-right: 29px; }
+      .trending .contenedor-trending .contenedor-cards .card .card-opciones {
+        text-align: left;
+        display: none;
+        width: 357px;
+        height: 275px;
         position: absolute;
-        right: 10px;
-        top: 10px; }
-        .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif .opcion-button {
-          width: 32px;
-          height: 32px;
-          opacity: 0.7;
-          background: var(--blanco);
-          border-radius: 6px;
-          margin-left: 11px; }
-          .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif .opcion-button img {
-            width: 18px;
-            height: 15.9px; }
-      .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion {
-        position: absolute;
-        left: 18.5px;
-        bottom: 51px; }
-        .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion .descripcion {
-          margin: 0;
-          padding: 0;
-          font-family: "Roboto", sans-serif;
-          font-size: 16px;
-          color: var(--blanco); }
-          .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion .descripcion .titulo {
-            font-weight: 700; }
-  .trending .contenedor-trending .contenedor-cards .card:hover .card-opciones {
-    display: block; } }
+        background-color: var(--purpura);
+        opacity: 0.7; }
+        .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif {
+          display: flex;
+          justify-content: flex-end;
+          position: absolute;
+          right: 10px;
+          top: 10px; }
+          .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif .opcion-button {
+            width: 32px;
+            height: 32px;
+            opacity: 0.7;
+            background: var(--botones);
+            border-radius: 6px;
+            margin-left: 11px; }
+            .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-gif .opcion-button img {
+              width: 18px;
+              height: 15.9px; }
+        .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion {
+          position: absolute;
+          left: 18.5px;
+          bottom: 51px; }
+          .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion .descripcion {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+            color: var(--botones); }
+            .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion .descripcion .user {
+              font-size: 16px; }
+            .trending .contenedor-trending .contenedor-cards .card .card-opciones .opciones-descripcion .descripcion .titulo {
+              font-size: 18px;
+              font-weight: 700; }
+    .trending .contenedor-trending .contenedor-cards .card:hover .card-opciones {
+      display: block; } }
 :root {
   --menu: rgba(87, 46, 229, 0.9);
   --barramenu: #572ee5;

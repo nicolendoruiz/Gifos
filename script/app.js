@@ -1,6 +1,7 @@
 window.onload = function () {
     cambioTema();
     cargarTrending();
+    cargarTrendingSugerencias();
 };
 
 /*_____________________NAVBAR STICKY_____________________*/
@@ -61,7 +62,7 @@ if (!!track) {
     const gestureEnd = (e) => {
         moving = false;
     }
-    
+
     if (window.PointerEvent) {
         window.addEventListener('pointerdown', gestureStart);
         window.addEventListener('pointermove', gestureMove);
@@ -73,7 +74,7 @@ if (!!track) {
         window.addEventListener('mousedown', gestureStart);
         window.addEventListener('mousemove', gestureMove);
         window.addEventListener('mouseup', gestureEnd);
-    } 
+    }
 }
 
 /*_____________________GENERALIDADES GIPHY_____________________*/
@@ -91,13 +92,31 @@ async function logFetch(url) {
 async function cargarTrending() {
     let puntoFinalTendencia = `https://api.giphy.com/v1/gifs/trending?api_key=${APIkey}&limit=12`;
     let gifsTrending = await logFetch(puntoFinalTendencia);
+    console.log(gifsTrending);
     let contenedor = document.getElementById('contenedor-cards');
     for (let i = 0; i < gifsTrending.data.length; i++) {
         let divtrending = document.createElement('div');
         let imggif = document.createElement('img');
         divtrending.classList.add('card');
+        divtrending.innerHTML = `<div class="card-opciones">
+                                    <div class="opciones-gif">
+                                        <button id="btn-favorito" class="opcion-button">
+                                            <img src="images/icon-fav-active.svg" alt="icono-busqueda">
+                                        </button>
+                                        <button id="btn-descargar"class="opcion-button">
+                                            <img src="images/icon-download.svg" alt="icono-busqueda">
+                                        </button>
+                                        <button id="btn-max"class="opcion-button">
+                                            <img src="images/icon-max.svg" alt="icono-busqueda">
+                                        </button>
+                                    </div>
+                                    <div class="opciones-descripcion">
+                                        <p class="descripcion user">${gifsTrending.data[i].username}</p>
+                                        <p class="descripcion titulo">${gifsTrending.data[i].title}</p>
+                                    </div>
+                                </div>`;
         imggif.srcset = `${gifsTrending.data[i].images.downsized_large.url}`
-        imggif.alt = `${gifsTrending.data[i].title}`;
+        imggif.alt = `${gifsTrending.data[i].id}`;
         divtrending.appendChild(imggif);
         if (!!contenedor) {
             contenedor.appendChild(divtrending);
