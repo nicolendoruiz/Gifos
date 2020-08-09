@@ -31,7 +31,7 @@ function iniciarVisual() {
     pasos[0].classList.add('pasoactivo');
 }
 function iniciarPermisosGrabacion() {
-    var constraints = { audio: true, video: { width: 480, height: 320 } }; //opciones de video
+    var constraints = { audio: false, video: { width: 480, height: 320 } }; //opciones de video
     navigator.mediaDevices.getUserMedia(constraints)//permisos para la captura de vídeo
         .then(function (stream) {
             recorder = RecordRTC(stream, {
