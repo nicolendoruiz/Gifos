@@ -9,6 +9,7 @@ let lista_trending = document.getElementById('lista-treding');
 let btn_vermas = document.getElementById('btn-vermas');
 let param_busqueda;
 let offset = 0;
+let listado_favoritos = obtenerListadoFavoritos();
 
 /*_____________________CARGUE DE SUGERENCIAS DE BÚSQUEDA_____________________*/
 
@@ -123,6 +124,7 @@ async function cargarBusqueda(parametro, offset) {
     let puntoFinalBusqueda = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&limit=12&q=${parametro}&offset=${offset}`;
     let resultadosBusqueda = await logFetch(puntoFinalBusqueda);
     if (resultadosBusqueda.data.length > 0) {
+
         for (let i = 0; i < resultadosBusqueda.data.length; i++) {
             let div = document.createElement('div');
             let img = document.createElement('img');
@@ -143,6 +145,9 @@ async function cargarBusqueda(parametro, offset) {
                                         <p class="descripcion titulo">${resultadosBusqueda.data[i].title}</p>
                                     </div>
                                 </div>`;
+            div.querySelector('#btn-favorito').addEventListener('click', () => {
+                agregarFavoritos(resultadosBusqueda.data[i].id);
+            });
             img.srcset = `${resultadosBusqueda.data[i].images.downsized_large.url}`;
             img.alt = `${resultadosBusqueda.data[i].id}`;
             div.appendChild(img);
@@ -167,3 +172,12 @@ async function cargarBusqueda(parametro, offset) {
     }
 }
 
+function agregarFavoritos(nuevoGifFavoritoId) {
+    console.log(listado_favoritos);
+    listado_favoritos.push(nuevoGifFavoritoId);
+    localStorage.setItem('gifsFavoritos', JSON.stringify(listado_favoritos));
+}
+
+function obtenerListadoFavoritos() {
+    return JSON.parse(localStorage.getItem('gifsFavoritos'));
+}

@@ -1,8 +1,20 @@
 window.onload = function () {
     cambioTema();
     cargarTrending();
-    cargarTrendingSugerencias();
+    if(!creacionGifo){
+        cargarTrendingSugerencias();
+    }
+    if (!obtenerListadoFavoritos()) {
+        localStorage.setItem('gifsFavoritos', JSON.stringify([]));
+    }
+    if (!obtenerListadoGifsGuardados()) {
+        localStorage.setItem('gifsGuardados', JSON.stringify([]));
+    }
 };
+
+function creacionGifo() {
+    return window.location.href.indexOf('creargifos.html') > -1;
+}
 
 /*_____________________NAVBAR STICKY_____________________*/
 window.onscroll = function () { addStickyNavbar() };
@@ -98,7 +110,7 @@ async function cargarTrending() {
         let divtrending = document.createElement('div');
         let imggif = document.createElement('img');
         divtrending.classList.add('card');
-        divtrending.innerHTML = `<div class="card-opciones">
+        divtrending.innerHTML = `<div id="${gifsTrending.data[i].id}" class="card-opciones">
                                     <div class="opciones-gif">
                                         <button id="btn-favorito" class="opcion-button">
                                             <img src="images/icon-fav-active.svg" alt="icono-busqueda">
@@ -123,3 +135,11 @@ async function cargarTrending() {
         }
     }
 };
+
+function obtenerListadoFavoritos() {
+    return JSON.parse(localStorage.getItem('gifsFavoritos'));
+}
+
+function obtenerListadoGifsGuardados() {
+    return JSON.parse(localStorage.getItem('gifsGuardados'));
+}
