@@ -1,9 +1,6 @@
 window.onload = function () {
     cambioTema();
     cargarTrending();
-    if(!creacionGifo){
-        cargarTrendingSugerencias();
-    }
     if (!obtenerListadoFavoritos()) {
         localStorage.setItem('gifsFavoritos', JSON.stringify([]));
     }
@@ -11,10 +8,6 @@ window.onload = function () {
         localStorage.setItem('gifsGuardados', JSON.stringify([]));
     }
 };
-
-function creacionGifo() {
-    return window.location.href.indexOf('creargifos.html') > -1;
-}
 
 /*_____________________NAVBAR STICKY_____________________*/
 window.onscroll = function () { addStickyNavbar() };

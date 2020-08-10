@@ -11,6 +11,8 @@ let param_busqueda;
 let offset = 0;
 let listado_favoritos = obtenerListadoFavoritos();
 
+cargarTrendingSugerencias();
+
 /*_____________________CARGUE DE SUGERENCIAS DE BÚSQUEDA_____________________*/
 
 //Autocompletado campo de búsqueda (li sugerencias)
@@ -124,7 +126,6 @@ async function cargarBusqueda(parametro, offset) {
     let puntoFinalBusqueda = `https://api.giphy.com/v1/gifs/search?api_key=${APIkey}&limit=12&q=${parametro}&offset=${offset}`;
     let resultadosBusqueda = await logFetch(puntoFinalBusqueda);
     if (resultadosBusqueda.data.length > 0) {
-
         for (let i = 0; i < resultadosBusqueda.data.length; i++) {
             let div = document.createElement('div');
             let img = document.createElement('img');
@@ -176,8 +177,4 @@ function agregarFavoritos(nuevoGifFavoritoId) {
     console.log(listado_favoritos);
     listado_favoritos.push(nuevoGifFavoritoId);
     localStorage.setItem('gifsFavoritos', JSON.stringify(listado_favoritos));
-}
-
-function obtenerListadoFavoritos() {
-    return JSON.parse(localStorage.getItem('gifsFavoritos'));
 }

@@ -91,6 +91,12 @@
     div {
       background-size: cover;
       background-position: center;
+      img {
+        height: 100%;
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
     }
   }
 }
