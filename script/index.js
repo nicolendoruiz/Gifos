@@ -155,9 +155,11 @@ async function cargarBusqueda(parametro, offset) {
             div.querySelector('#btn-descargar').addEventListener('click', () => {
                 descargarGif(resultadosBusqueda.data[i].images.original.url);
             });
+            div.addEventListener('click', () => {
+                maximizarGif(resultadosBusqueda.data[i].id);
+            })
             img.srcset = `${resultadosBusqueda.data[i].images.downsized_large.url}`;
             img.alt = `${resultadosBusqueda.data[i].id}`;
-
             div.appendChild(img);
             resultados.appendChild(div);
             resultados.classList.remove('hidden');

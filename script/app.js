@@ -95,9 +95,8 @@ async function logFetch(url) {
 
 /*_____________________CARGUE INFORMACIÓN DE TRENDING_____________________*/
 async function cargarTrending() {
-    let puntoFinalTendencia = `https://api.giphy.com/v1/gifs/trending?api_key=${APIkey}&limit=12`;
+    let puntoFinalTendencia = `https://api.giphy.com/v1/gifs/trending?api_key=${APIkey}`;
     let gifsTrending = await logFetch(puntoFinalTendencia);
-    console.log(gifsTrending);
     let contenedor = document.getElementById('contenedor-cards');
     for (let i = 0; i < gifsTrending.data.length; i++) {
         let divtrending = document.createElement('div');
