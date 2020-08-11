@@ -128,7 +128,7 @@ async function cargarTrending() {
         divtrending.querySelector('#btn-max').addEventListener('click', () => {
             maximizarGif(gifsTrending.data[i].id);
         });
-        divtrending.addEventListener('click', () => {
+        divtrending.addEventListener('touchstart', () => {
             maximizarGif(gifsTrending.data[i].id);
         })
         imggif.srcset = `${gifsTrending.data[i].images.downsized_large.url}`
