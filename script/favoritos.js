@@ -1,11 +1,12 @@
 let listado_favoritos = obtenerListadoFavoritos();
 let offset = 0;
 let contenedor_favoritos = document.getElementById('favoritos-gifs');
-let contenedor_sinfavoritos =document.getElementById('sin-favoritos');
+let contenedor_sinfavoritos = document.getElementById('sin-favoritos');
 
 cargarFavoritos();
 
 async function cargarFavoritos(offset) {
+    contenedor_favoritos.innerHTML = "";
     if (listado_favoritos.length > 0) {
         let puntoFinalFavoritos = `https://api.giphy.com/v1/gifs?ids=${listado_favoritos.toString()}&api_key=${APIkey}&limit=12&offset=${offset}`;
         let gifsFavoritos = await logFetch(puntoFinalFavoritos);
@@ -19,9 +20,9 @@ async function cargarFavoritos(offset) {
                 contenedor_favoritos.appendChild(div);
                 contenedor_favoritos.classList.remove('hidden');
             }
-        } 
+        }
         console.log(gifsFavoritos);
-    }else{
+    } else {
         contenedor_favoritos.classList.add('hidden');
         contenedor_sinfavoritos.classList.remove('hidden');
     }

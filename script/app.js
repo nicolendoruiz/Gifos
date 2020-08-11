@@ -106,13 +106,13 @@ async function cargarTrending() {
         divtrending.innerHTML = `<div id="${gifsTrending.data[i].id}" class="card-opciones">
                                     <div class="opciones-gif">
                                         <button id="btn-favorito" class="opcion-button">
-                                            <img src="images/icon-fav-active.svg" alt="icono-busqueda">
+                                            <img src="images/icon-fav-hover.svg" alt="icono-favorito">
                                         </button>
-                                        <button id="btn-descargar"class="opcion-button">
-                                            <img src="images/icon-download.svg" alt="icono-busqueda">
+                                        <button id="btn-descargar" class="opcion-button">
+                                            <img src="images/icon-download.svg" alt="icono-descarga">
                                         </button>
-                                        <button id="btn-max"class="opcion-button">
-                                            <img src="images/icon-max.svg" alt="icono-busqueda">
+                                        <button id="btn-max" class="opcion-button">
+                                            <img src="images/icon-max.svg" alt="icono-maximizar">
                                         </button>
                                     </div>
                                     <div class="opciones-descripcion">
@@ -120,6 +120,18 @@ async function cargarTrending() {
                                         <p class="descripcion titulo">${gifsTrending.data[i].title}</p>
                                     </div>
                                 </div>`;
+        divtrending.querySelector('#btn-favorito').addEventListener('click', () => {
+            agregarFavoritos(gifsTrending.data[i].id);
+        });
+        divtrending.querySelector('#btn-descargar').addEventListener('click', () => {
+            descargarGif(gifsTrending.data[i].images.original.url);
+        });
+        divtrending.querySelector('#btn-max').addEventListener('click', () => {
+            maximizarGif(gifsTrending.data[i].id);
+        });
+        divtrending.addEventListener('click', () => {
+            maximizarGif(gifsTrending.data[i].id);
+        })
         imggif.srcset = `${gifsTrending.data[i].images.downsized_large.url}`
         imggif.alt = `${gifsTrending.data[i].id}`;
         divtrending.appendChild(imggif);
@@ -135,4 +147,54 @@ function obtenerListadoFavoritos() {
 
 function obtenerListadoGifsGuardados() {
     return JSON.parse(localStorage.getItem('gifsGuardados'));
+}
+
+function agregarFavoritos(nuevoGifFavoritoId) {
+    console.log(listado_favoritos);
+    listado_favoritos.push(nuevoGifFavoritoId);
+    localStorage.setItem('gifsFavoritos', JSON.stringify(listado_favoritos));
+    cargarFavoritos();
+}
+
+async function maximizarGif(idGif) {
+    if (!!idGif) {
+        let puntoFinalGif = `https://api.giphy.com/v1/gifs/${idGif}?api_key=${APIkey}`;
+        let gifInfo = await logFetch(puntoFinalGif);
+        let contenedor_maximizado = document.getElementById('gif-max');
+        contenedor_maximizado.style.display = 'flex';
+        contenedor_maximizado.innerHTML =
+            `<button id="btnmax-close" class="close-button">
+                    <img src="images/close.svg" alt="icono-busqueda">
+             </button>
+             <img srcset="${gifInfo.data.images.downsized_large.url}"
+                    alt="${gifInfo.data.id}" id="img-maximizado" class="gif-maximizado">
+             <article>
+                   <div>
+                       <p>${gifInfo.data.username}</p>
+                       <p class="titulo">${gifInfo.data.title}</p>
+                   </div>
+                   <div class="maximizado-opciones">
+                       <button id="btnmax-favorito">
+                           <img src="images/icon-fav-hover.svg" alt="icono-busqueda">
+                       </button>
+                       <button id="btnmax-descarga">
+                           <img src="images/icon-download.svg" alt="icono-busqueda">
+                       </button>
+                   </div>
+             </article>`;
+        contenedor_maximizado.querySelector('#btnmax-favorito').addEventListener('click', () => {
+            agregarFavoritos(gifInfo.data.id);
+        });
+        contenedor_maximizado.querySelector('#btnmax-descarga').addEventListener('click', () => {
+            descargarGif(gifInfo.data.images.original.url);
+        });
+        contenedor_maximizado.querySelector('#btnmax-close').addEventListener('click', () => {
+            contenedor_maximizado.style.display = 'none';
+        });
+    }
+};
+
+async function descargarGif(urlGif) {
+    let blob = await fetch(urlGif).then(data => data.blob());;
+    invokeSaveAsDialog(blob, "gifos.gif");
 }

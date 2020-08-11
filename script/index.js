@@ -132,12 +132,12 @@ async function cargarBusqueda(parametro, offset) {
             div.innerHTML = `<div class="card-opciones">
                                     <div class="opciones-gif">
                                         <button id="btn-favorito" class="opcion-button">
-                                            <img src="images/icon-fav-active.svg" alt="icono-busqueda">
+                                            <img src="images/icon-fav-hover.svg" alt="icono-busqueda">
                                         </button>
-                                        <button id="btn-descargar"class="opcion-button">
+                                        <button id="btn-descargar" class="opcion-button">
                                             <img src="images/icon-download.svg" alt="icono-busqueda">
                                         </button>
-                                        <button id="btn-max"class="opcion-button">
+                                        <button id="btn-max" class="opcion-button">
                                             <img src="images/icon-max.svg" alt="icono-busqueda">
                                         </button>
                                     </div>
@@ -149,8 +149,15 @@ async function cargarBusqueda(parametro, offset) {
             div.querySelector('#btn-favorito').addEventListener('click', () => {
                 agregarFavoritos(resultadosBusqueda.data[i].id);
             });
+            div.querySelector('#btn-max').addEventListener('click', () => {
+                maximizarGif(resultadosBusqueda.data[i].id);
+            });
+            div.querySelector('#btn-descargar').addEventListener('click', () => {
+                descargarGif(resultadosBusqueda.data[i].images.original.url);
+            });
             img.srcset = `${resultadosBusqueda.data[i].images.downsized_large.url}`;
             img.alt = `${resultadosBusqueda.data[i].id}`;
+
             div.appendChild(img);
             resultados.appendChild(div);
             resultados.classList.remove('hidden');
@@ -171,10 +178,4 @@ async function cargarBusqueda(parametro, offset) {
         texto.classList.add('text-sinresultados');
         resultados.appendChild(texto);
     }
-}
-
-function agregarFavoritos(nuevoGifFavoritoId) {
-    console.log(listado_favoritos);
-    listado_favoritos.push(nuevoGifFavoritoId);
-    localStorage.setItem('gifsFavoritos', JSON.stringify(listado_favoritos));
 }

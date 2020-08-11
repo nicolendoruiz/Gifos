@@ -74,8 +74,6 @@ function pararGrabacion() {
 function subirGifGrabado() {
     let form = new FormData();
     form.append('file', info, 'myGif.gif');
-    form.append('source_post_url', 'http://127.0.0.1:5501/');
-    form.append('api_key', 'HBbQgzW5Bryp891jwDofkTaAyDKxBWiU');
     console.log(form.get('file'));
     fetch(`https://upload.giphy.com/v1/gifs?api_key=${APIkey}`, {
         method: 'POST',
