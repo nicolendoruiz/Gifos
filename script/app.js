@@ -1,6 +1,7 @@
 window.onload = function () {
     cambioTema();
     cargarTrending();
+    /*_____________________CREACIÓN KEYS EN LOCAL STORAGE_____________________*/
     if (!obtenerListadoFavoritos()) {
         localStorage.setItem('gifsFavoritos', JSON.stringify([]));
     }
@@ -43,31 +44,27 @@ document.getElementById('liModoMocturno').addEventListener("click", function (e)
     cambioTema();
 })
 
-/*_____________________FUNCIONAMIENTOS TRENDING MOBILE_____________________*/
+/*_____________________FUNCIONAMIENTO TRENDING MOBILE_____________________*/
 const track = document.getElementById('contenedor-cards');
 if (!!track) {
-    let initialPosition = null;
-    let moving = false;
-    let transform = 0;
+    let posicionInicial = null; let movimiento = false; let transform = 0;
     const gestureStart = (e) => {
-        initialPosition = e.pageX;
-        moving = true;
+        posicionInicial = e.pageX;
+        movimiento = true;
         const transformMatrix = window.getComputedStyle(track).getPropertyValue('transform');
         if (transformMatrix !== 'none') {
             transform = parseInt(transformMatrix.split(',')[4].trim());
         }
     }
     const gestureMove = (e) => {
-        if (moving) {
-            const currentPosition = e.pageX;
-            const diff = currentPosition - initialPosition;
+        if (movimiento) {
+            const currentPosition = e.pageX; const diff = currentPosition - posicionInicial;
             track.style.transform = `translateX(${transform + diff}px)`;
         }
     };
     const gestureEnd = (e) => {
-        moving = false;
+        movimiento = false;
     }
-
     if (window.PointerEvent) {
         window.addEventListener('pointerdown', gestureStart);
         window.addEventListener('pointermove', gestureMove);
@@ -78,13 +75,14 @@ if (!!track) {
         window.addEventListener('touchup', gestureEnd);
         window.addEventListener('mousedown', gestureStart);
         window.addEventListener('mousemove', gestureMove);
-        window.addEventListener('mouseup', gestureEnd);
+        window.addEventListener('mouseup', gestureEnd); 
     }
 }
 
 /*_____________________GENERALIDADES GIPHY_____________________*/
 const APIkey = "HBbQgzW5Bryp891jwDofkTaAyDKxBWiU";
 
+//Función general para los request a la api 
 async function logFetch(url) {
     return fetch(url)
         .then((data) => {
@@ -119,6 +117,7 @@ async function cargarTrending() {
                                         <p class="descripcion titulo">${gifsTrending.data[i].title}</p>
                                     </div>
                                 </div>`;
+        //Eventos para cada uno de los botones (Favoritear, descargar y expandir fullscreen)
         divtrending.querySelector('#btn-favorito').addEventListener('click', () => {
             agregarFavoritos(gifsTrending.data[i].id);
         });
@@ -128,18 +127,21 @@ async function cargarTrending() {
         divtrending.querySelector('#btn-max').addEventListener('click', () => {
             maximizarGif(gifsTrending.data[i].id);
         });
+        //Evento para mobile, presionar tarjeta para fullscreen (no hay hover)
         divtrending.addEventListener('touchstart', () => {
             maximizarGif(gifsTrending.data[i].id);
         })
         imggif.srcset = `${gifsTrending.data[i].images.downsized_large.url}`
         imggif.alt = `${gifsTrending.data[i].id}`;
         divtrending.appendChild(imggif);
+        //Validación de que el html contenga el contenedor de trendings
         if (!!contenedor) {
             contenedor.appendChild(divtrending);
         }
     }
 };
 
+/*_____________________OBTENER DATOS DEL LOCAL STORAGE_____________________*/
 function obtenerListadoFavoritos() {
     return JSON.parse(localStorage.getItem('gifsFavoritos'));
 }
@@ -148,13 +150,7 @@ function obtenerListadoGifsGuardados() {
     return JSON.parse(localStorage.getItem('gifsGuardados'));
 }
 
-function agregarFavoritos(nuevoGifFavoritoId) {
-    console.log(listado_favoritos);
-    listado_favoritos.push(nuevoGifFavoritoId);
-    localStorage.setItem('gifsFavoritos', JSON.stringify(listado_favoritos));
-    cargarFavoritos();
-}
-
+/*_____________________INFORMACIÓN DE GIF QUE SE DESEA VISUALIZAR EN FULLSCREEN_____________________*/
 async function maximizarGif(idGif) {
     if (!!idGif) {
         let puntoFinalGif = `https://api.giphy.com/v1/gifs/${idGif}?api_key=${APIkey}`;
@@ -181,6 +177,7 @@ async function maximizarGif(idGif) {
                        </button>
                    </div>
              </article>`;
+        //Eventos para cada uno de los botones en fullscreen (Favoritea, descargar y cerrar)
         contenedor_maximizado.querySelector('#btnmax-favorito').addEventListener('click', () => {
             agregarFavoritos(gifInfo.data.id);
         });
@@ -193,6 +190,15 @@ async function maximizarGif(idGif) {
     }
 };
 
+/*_____________________AGREGAR FAVORITOS AL LOCAL STORAGE_____________________*/
+function agregarFavoritos(nuevoGifFavoritoId) {
+    console.log(listado_favoritos);
+    listado_favoritos.push(nuevoGifFavoritoId);
+    localStorage.setItem('gifsFavoritos', JSON.stringify(listado_favoritos));
+    cargarFavoritos();
+}
+
+/*_____________________DESCARGA DEL GIF_____________________*/
 async function descargarGif(urlGif) {
     let blob = await fetch(urlGif).then(data => data.blob());;
     invokeSaveAsDialog(blob, "gifos.gif");

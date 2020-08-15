@@ -62,7 +62,8 @@ header {
             display: block;
           }
           a:hover {
-            border-bottom: 2px solid var(--turquesa);
+            text-decoration: underline;
+            text-decoration-color: var(--turquesa);
           }
           a:active {
             color: var(--linea);
@@ -81,11 +82,11 @@ header {
             display: inline-block;
           }
         }
-        
+
         .liCrearGifos {
           display: none;
         }
-       
+
         li:first-child {
           margin-top: 32px;
         }
@@ -176,13 +177,12 @@ header {
             a:hover {
               border-bottom: none;
             }
-            
           }
           .liCrearGifos:hover {
-            background-color:var(--purpura);
+            background-color: var(--purpura);
           }
           .liCrearGifos:active {
-            background-color:var(--linea);
+            background-color: var(--linea);
           }
           li:first-child {
             margin: 0px;
