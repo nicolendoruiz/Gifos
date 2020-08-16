@@ -132,7 +132,9 @@ header nav .menu ul li a {
 }
 
 header nav .menu ul li a:hover {
-  border-bottom: 2px solid var(--turquesa);
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--turquesa);
+          text-decoration-color: var(--turquesa);
 }
 
 header nav .menu ul li a:active {
@@ -1090,6 +1092,10 @@ header nav .menu .layer {
   padding-bottom: 82px;
 }
 
+.trending .contenedor-trending-button {
+  display: none;
+}
+
 .trending h2 {
   letter-spacing: 0;
   font-family: "Montserrat", sans-serif;
@@ -1212,6 +1218,62 @@ header nav .menu .layer {
   }
   .trending .contenedor-trending .contenedor-cards .card:hover .card-opciones {
     display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .trending .contenedor-trending-button {
+    display: block;
+    border: 1px solid var(--purpura);
+    color: var(--purpura);
+    background: var(--blanco);
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 1;
+    margin-top: 120px;
+  }
+  .trending .contenedor-trending-button:hover {
+    border: 1px solid var(--purpura);
+    color: var(--blanco);
+    background: var(--purpura);
+  }
+  .trending .anterior {
+    left: 5%;
+  }
+  .trending .siguiente {
+    right: 5%;
+  }
+  .trending .contenedor-trending {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+        align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 2rem auto;
+    overflow: hidden;
+    position: relative;
+    width: 80%;
+  }
+  .trending .contenedor-trending .contenedor-cards {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: -webkit-transform 0.25s;
+    transition: -webkit-transform 0.25s;
+    transition: transform 0.25s;
+    transition: transform 0.25s, -webkit-transform 0.25s;
+  }
+  .trending .contenedor-trending .contenedor-cards .card img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
   }
 }
 
