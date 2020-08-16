@@ -133,6 +133,7 @@ function repitirGrabacion() {
 /*_____________________SUBIR GIFO A GIPHY (POST API)_____________________*/
 function subirGifGrabado() {
     div_subirgifo.hidden = false;
+    btn_repetir.hidden = true;
     fetch(`https://upload.giphy.com/v1/gifs`, {
         method: 'POST',
         body: form
@@ -144,7 +145,6 @@ function subirGifGrabado() {
         recorder.reset();
         recorder.destroy();
         recorder = null;
-
         img_subirgifo.srcset = 'images/check.svg';
         texto_subirgifo.innerHTML = "GIFO subido con éxito";
         cargarInfoGifo(datos.data.id);
@@ -161,7 +161,7 @@ async function cargarInfoGifo(idGif) {
     console.log(gifInfo);
     console.log(gifInfo.data.images.original.url);
 
-     //Eventos para cada uno de los botones (descargar y copiarurl)
+    //Eventos para cada uno de los botones (descargar y copiarurl)
     btn_link.addEventListener("click", function copiarLink() {
         var enlace = gifInfo.data.url;
         var inputTemporalLink = document.createElement("input");
