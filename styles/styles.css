@@ -1225,7 +1225,7 @@ header nav .menu .layer {
   .trending .contenedor-trending-button {
     display: block;
     border: 1px solid var(--purpura);
-    color: var(--purpura);
+    color: var(--barramenu);
     background: var(--blanco);
     cursor: pointer;
     font-weight: 700;
@@ -1415,6 +1415,7 @@ header nav .menu .layer {
   font-family: "Roboto", sans-serif;
   line-height: 29px;
   font-size: 16px;
+  color: var(--negro);
 }
 
 .creargifos .div-grabacion .div-contenedor .div-grabacion video {
@@ -1424,11 +1425,72 @@ header nav .menu .layer {
   height: 320px;
 }
 
-.creargifos .div-grabacion .div-contenedor .div-grabacion img {
+.creargifos .div-grabacion .div-contenedor .div-grabacion .gif-grabado {
   position: absolute;
   z-index: 200;
   width: 480px;
   height: 320px;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-grabacion .div-subirgifo {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 200;
+  width: 480px;
+  height: 320px;
+  background: var(--purpura);
+  opacity: 0.6;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-grabacion .div-subirgifo .opciones-gifo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-grabacion .div-subirgifo .opciones-gifo button {
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+  background: var(--botones);
+  border-radius: 6px;
+  margin-left: 11px;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-grabacion .div-subirgifo .opciones-gifo button:hover {
+  opacity: 1;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-grabacion .div-subirgifo .opciones-gifo .img-subirgifo {
+  width: 22px;
+  height: 22px;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-grabacion .div-subirgifo .texto-subirgifo {
+  margin-top: 10px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: var(--botones);
+  text-align: center;
+  font-weight: 600;
 }
 
 .creargifos .div-grabacion .div-contenedor .div-opcgenerales {
@@ -1460,13 +1522,13 @@ header nav .menu .layer {
   border: 1px solid var(--purpura);
   margin: 0 12.5px 0 12.5px;
   font-size: 18px;
-  color: var(--purpura);
+  color: var(--barramenu);
   font: "Roboto", sans-serif;
   font-weight: 600;
 }
 
 .creargifos .div-grabacion .div-contenedor .div-opcgenerales .div-pasos .pasoactivo {
-  color: var(--blanco);
+  color: var(--botones);
   background-color: var(--purpura);
 }
 
@@ -1476,6 +1538,35 @@ header nav .menu .layer {
   display: -ms-flexbox;
   display: flex;
   right: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-opcgenerales .div-opcgrabacion p {
+  color: var(--purpura);
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0;
+  margin: 0;
+  font-weight: 700;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-opcgenerales .div-opcgrabacion button {
+  background: none;
+  color: var(--purpura);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.creargifos .div-grabacion .div-contenedor .div-opcgenerales .div-opcgrabacion button:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--turquesa);
+          text-decoration-color: var(--turquesa);
 }
 
 .creargifos .div-grabacion .div-pelicula {

@@ -81,12 +81,12 @@ if (!!track) {
 
 /*_____________________FUNCIONAMIENTO TRENDING DESKTOP_____________________*/
 const trendings_contenedor = document.querySelector('.contenedor-cards');
-const trendings_boton  = document.querySelectorAll('.contenedor-trending-button');
+const trendings_boton = document.querySelectorAll('.contenedor-trending-button');
 const trendings_gif = document.querySelectorAll('.contenedor-cards .card').length;
 let contador_gif = 1;
 let translateX = 0;
 
-trendings_boton .forEach(button => {
+trendings_boton.forEach(button => {
     button.addEventListener('click', (event) => {
         if (event.target.id === 'btn-anterior') {
             if (contador_gif !== 1) {
