@@ -59,7 +59,7 @@ if (!!track) {
     const gestureMove = (e) => {
         if (movimiento) {
             const currentPosition = e.pageX; const diff = currentPosition - posicionInicial;
-            track.style.transform = `translateX(${transform + diff}px)`;
+            track.style.transform = `movimientoX(${transform + diff}px)`;
         }
     };
     const gestureEnd = (e) => {
@@ -75,9 +75,33 @@ if (!!track) {
         window.addEventListener('touchup', gestureEnd);
         window.addEventListener('mousedown', gestureStart);
         window.addEventListener('mousemove', gestureMove);
-        window.addEventListener('mouseup', gestureEnd); 
+        window.addEventListener('mouseup', gestureEnd);
     }
 }
+
+/*_____________________FUNCIONAMIENTO TRENDING DESKTOP_____________________*/
+const trendings_contenedor = document.querySelector('.contenedor-cards');
+const trendings_boton = document.querySelectorAll('.contenedor-trending-button');
+const trendings_gif = document.querySelectorAll('.contenedor-cards .card').length;
+let contador_gif = 1;
+let translateX = 0;
+
+trendings_boton.forEach(button => {
+    button.addEventListener('click', (event) => {
+        if (event.target.id === 'btn-anterior') {
+            if (contador_gif !== 1) {
+                contador_gif--;
+                translateX += 386;
+            }
+        } else {
+            if (contador_gif !== trendings_gif) {
+                contador_gif++;
+                translateX -= 386;
+            }
+        }
+        trendings_contenedor.style.transform = `translateX(${translateX}px)`;
+    });
+});
 
 /*_____________________GENERALIDADES GIPHY_____________________*/
 const APIkey = "HBbQgzW5Bryp891jwDofkTaAyDKxBWiU";

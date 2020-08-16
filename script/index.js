@@ -1,16 +1,22 @@
+
+//Elementos del buscador (input)
 let input_busqueda = document.getElementById('in-busqueda');
 let btn_busqueda = document.getElementById('btn-buscar');
 let lista_sugerencias = document.getElementById('lista-busqueda');
 let lupa_busqueda = document.getElementById('img-lupa');
 let lupas_icon = document.getElementsByClassName('input_img');
-let titulo = document.getElementById('titulo-resultados');
-let resultados = document.getElementById('resultados-gifs');
-let lista_trending = document.getElementById('lista-treding');
-let btn_vermas = document.getElementById('btn-vermas');
 let param_busqueda;
 let offset = 0;
-let listado_favoritos = obtenerListadoFavoritos();
 
+//Elementos del div resultados
+let titulo = document.getElementById('titulo-resultados');
+let resultados = document.getElementById('resultados-gifs');
+
+//Elementos del slider trending
+let lista_trending = document.getElementById('lista-treding');
+let btn_vermas = document.getElementById('btn-vermas');
+
+let listado_favoritos = obtenerListadoFavoritos();
 cargarTrendingSugerencias();
 
 /*_____________________CARGUE DE SUGERENCIAS DE BÚSQUEDA_____________________*/
@@ -182,25 +188,3 @@ async function cargarBusqueda(parametro, offset) {
     }
 }
 
-const div_sliderImages = document.querySelector('.contenedor-cards');
-const div_sliderButtons = document.querySelectorAll('.contenedor-trending-button');
-const numberOfImages = document.querySelectorAll('.contenedor-cards .card').length;
-let imageIndex = 1;
-let translateX = 0;
-
-div_sliderButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        if (event.target.id === 'btn-anterior') {
-            if (imageIndex !== 1) {
-                imageIndex--;
-                translateX += 300;
-            }
-        } else {
-            if (imageIndex !== numberOfImages) {
-                imageIndex++;
-                translateX -= 300;
-            }
-        }
-        div_sliderImages.style.transform = `translateX(${translateX}px)`;
-    });
-});
