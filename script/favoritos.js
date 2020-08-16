@@ -5,6 +5,7 @@ let contenedor_sinfavoritos = document.getElementById('sin-favoritos');
 
 cargarFavoritos();
 
+/*_____________________VISUALIZAR MIS GIFOS DEL LOCAL STORAGE_____________________*/
 async function cargarFavoritos(offset) {
     contenedor_favoritos.innerHTML = "";
     if (listado_favoritos.length > 0) {

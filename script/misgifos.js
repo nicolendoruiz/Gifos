@@ -5,6 +5,7 @@ let contenedor_sinmisgifos = document.getElementById('sin-misgifos');
 
 cargarMisGifos();
 
+/*_____________________VISUALIZAR MIS FAVORITOS DEL LOCAL STORAGE_____________________*/
 async function cargarMisGifos(offset) {
     contenedor_misgifos.innerHTML = "";
     if (listado_misgifos.length > 0) {

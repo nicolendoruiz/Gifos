@@ -79,6 +79,7 @@ function iniciarGrabacion() {
 
     contador.hidden = false;
 
+    /*_____________________CALCULAR TIEMPO DE GRABACIÓN_____________________*/
     segundos = 0, minutos = 0, horas = 0;
     intervalo = setInterval(() => {
         segundos++;
@@ -99,6 +100,7 @@ function pararGrabacion() {
     recorder.stopRecording(function () {
         blob = recorder.getBlob();
 
+        /*_____________________CREACIÓN DEL FORM CON LA INFO PARA EL POST_____________________*/
         form.append('file', blob, 'myGif.gif');
         form.append('api_key', APIkey);
         console.log(form.get('file'));
@@ -151,9 +153,7 @@ function subirGifGrabado() {
     });
 }
 
-
-
-
+/*_____________________INFORMACIÓN DEL GIF GRABADO_____________________*/
 async function cargarInfoGifo(idGif) {
     div_opcionesgifo.hidden = false;
     let puntoFinalGif = `https://api.giphy.com/v1/gifs/${idGif}?api_key=${APIkey}`;
@@ -161,6 +161,7 @@ async function cargarInfoGifo(idGif) {
     console.log(gifInfo);
     console.log(gifInfo.data.images.original.url);
 
+     //Eventos para cada uno de los botones (descargar y copiarurl)
     btn_link.addEventListener("click", function copiarLink() {
         var enlace = gifInfo.data.url;
         var inputTemporalLink = document.createElement("input");
@@ -170,7 +171,6 @@ async function cargarInfoGifo(idGif) {
         document.execCommand("copy");
         document.body.removeChild(inputTemporalLink);
     });
-
     btn_descargar.addEventListener("click", () => {
         descargarGif(gifInfo.data.images.original.url);
     });
