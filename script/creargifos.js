@@ -103,7 +103,6 @@ function pararGrabacion() {
         /*_____________________CREACIÓN DEL FORM CON LA INFO PARA EL POST_____________________*/
         form.append('file', blob, 'myGif.gif');
         form.append('api_key', APIkey);
-        console.log(form.get('file'));
 
         img_gif.hidden = false;
         img_gif.src = URL.createObjectURL(blob);
@@ -133,6 +132,7 @@ function repitirGrabacion() {
 /*_____________________SUBIR GIFO A GIPHY (POST API)_____________________*/
 function subirGifGrabado() {
     div_subirgifo.hidden = false;
+    btn_subir.hidden = true;
     btn_repetir.hidden = true;
     fetch(`https://upload.giphy.com/v1/gifs`, {
         method: 'POST',
@@ -140,7 +140,6 @@ function subirGifGrabado() {
     }).then(data => {
         return data.json();
     }).then(datos => {
-        console.log(datos.data.id);
         agregarMisGifo(datos.data.id);
         recorder.reset();
         recorder.destroy();
@@ -158,9 +157,6 @@ async function cargarInfoGifo(idGif) {
     div_opcionesgifo.hidden = false;
     let puntoFinalGif = `https://api.giphy.com/v1/gifs/${idGif}?api_key=${APIkey}`;
     let gifInfo = await logFetch(puntoFinalGif);
-    console.log(gifInfo);
-    console.log(gifInfo.data.images.original.url);
-
     //Eventos para cada uno de los botones (descargar y copiarurl)
     btn_link.addEventListener("click", function copiarLink() {
         var enlace = gifInfo.data.url;
@@ -178,7 +174,6 @@ async function cargarInfoGifo(idGif) {
 
 /*_____________________AGREGAR MIS GIFOS GRABADOS AL LOCAL STORAGE_____________________*/
 function agregarMisGifo(nuevoGifGrabadoId) {
-    console.log(listado_misgifos);
     listado_misgifos.push(nuevoGifGrabadoId);
     localStorage.setItem('gifsGuardados', JSON.stringify(listado_misgifos));
 }
