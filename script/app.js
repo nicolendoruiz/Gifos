@@ -10,6 +10,9 @@ window.onload = function () {
     }
 };
 
+let listado_favoritos = obtenerListadoFavoritos();
+let listado_misgifos = obtenerListadoGifsGuardados();
+
 /*_____________________NAVBAR STICKY_____________________*/
 window.onscroll = function () { addStickyNavbar() };
 var navbar = document.getElementById('navbar');
@@ -219,7 +222,6 @@ function agregarFavoritos(nuevoGifFavoritoId) {
     console.log(listado_favoritos);
     listado_favoritos.push(nuevoGifFavoritoId);
     localStorage.setItem('gifsFavoritos', JSON.stringify(listado_favoritos));
-    cargarFavoritos();
 }
 
 /*_____________________DESCARGA DEL GIF_____________________*/

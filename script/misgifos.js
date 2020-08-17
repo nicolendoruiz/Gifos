@@ -1,4 +1,3 @@
-let listado_misgifos = obtenerListadoGifsGuardados();
 let offset = 0;
 let contenedor_misgifos = document.getElementById('misgifos-gifs');
 let contenedor_sinmisgifos = document.getElementById('sin-misgifos');

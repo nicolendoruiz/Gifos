@@ -1,4 +1,3 @@
-let listado_favoritos = obtenerListadoFavoritos();
 let offset = 0;
 let contenedor_favoritos = document.getElementById('favoritos-gifs');
 let contenedor_sinfavoritos = document.getElementById('sin-favoritos');
